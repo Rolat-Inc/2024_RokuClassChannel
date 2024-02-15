@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="IconItem" extends="Group">
+        <interface>
+            <field id="name" type="string" alias="title.text" />
+            <field id="posterUri" type="uri" alias="icon.uri" />
+            <field id="viewName" type="string"/>
+        </interface>
+
+        <script type="text/brightscript" uri="iconItem.brs" />
+
+        <children>
+            <LayoutGroup
+                id="option"
+                layoutDirection="horiz"
+                itemSpacings="[10]">
+                
+                <Poster
+                    id="icon"
+                    height="31"
+                    width="31"
+                    blendColor="0x999999"/>
+
+                <Label
+                    id="title"
+                    color="0x999999"/>
+
+            </LayoutGroup>
+        </children>
+</component>

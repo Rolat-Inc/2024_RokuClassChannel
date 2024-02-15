@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="SideBar" extends="Group">
+        <script type="text/brightscript" uri="sideBar.brs" />
+
+        <children>
+            <LayoutGroup
+                layoutDirection="vert"
+                itemSpacings="[20]"
+                translation="[20,500]">
+
+                <IconItem
+                    id="homeOption"
+                    name="Home"
+                    viewName="HomeView"
+                    posterUri="https://icon-library.com/images/white-home-icon-png/white-home-icon-png-21.jpg" />
+                <IconItem
+                    id="searchOption"
+                    name="Search"
+                    viewName="SearchView"
+                    posterUri="https://icon-library.com/images/search-icon-white/search-icon-white-16.jpg" />
+            </LayoutGroup>
+        </children>
+</component>

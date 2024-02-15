@@ -4,6 +4,7 @@ sub main()
     screen.setMessagePort(m.port)
     scene= screen.CreateScene("MainScene")
     screen.show()
+    
     while(true)
         msg= wait(0, m.port)
         msgType= type(msg)

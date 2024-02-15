@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="MainScene" extends="Scene">
+	<interface>
+		<function name="showView" />
+	</interface>
 
 	<script type="text/brightscript" uri="mainScene.brs" /> 
 
 	<children>
-		<Overhang
-			showClock="true"
-			logoUri="pkg:/images/rolat-logo-blanco.png" />
+		<LayoutGroup
+			layoutDirection="vert"
+			itemSpacings="[70]">
 
-		<Label
-			id="title"
-			text="Hello students!"
-			font="font:MediumBoldSystemFont"
-			translation="[750,400]"/>                         
+			<Overhang
+				showClock="true"
+				logoUri="pkg:/images/rolat-logo-blanco.png" />
+
+			<LayoutGroup
+				layoutDirection="horiz"
+				itemSpacings="[100]">
+
+				<SideBar id="sideBar"/>
+				<Group id="viewContainer"/>
+			</LayoutGroup>
+		</LayoutGroup>                      
 	</children>
 </component>

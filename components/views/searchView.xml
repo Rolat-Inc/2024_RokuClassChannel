@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="SearchView" extends="Group">
+        <script type="text/brightscript" uri="searchView.brs" />
+
+        <children>
+            <LayoutGroup
+                layoutDirection="vert"
+                itemSpacings="[10]">
+				
+                <Keyboard
+                    id="keyboard" />
+                <Button
+                    id="button"
+                    text="Search" />
+            </LayoutGroup>
+        </children>
+</component>

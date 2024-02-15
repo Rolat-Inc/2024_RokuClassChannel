@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="HomeView" extends="Group">
+	<script type="text/brightscript" uri="homeView.brs" />
+
+	<children>
+		<LayoutGroup
+			layoutDirection="vert"
+			itemSpacings="[100, 50]"
+			translation="[200,250]">
+
+			<Rectangle
+				id="border"
+				color="0xFFFFFF"
+				width="610"
+				height="360" >
+				
+				<Poster
+					id="testPoster"
+					uri="pkg:/images/lp.jpeg"
+					width="600"
+					height="350"
+					translation="[5,5]" />
+			</Rectangle>
+
+			<Rectangle
+				id="button"
+				color="0x000000"
+				width="300"
+				height="60">
+
+				<Label id="label" text="Aceptar"/>
+			</Rectangle>
+		</LayoutGroup>
+	</children>
+</component>

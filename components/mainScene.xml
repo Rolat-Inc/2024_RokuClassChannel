@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="MainScene" extends="Scene">
+
+	<script type="text/brightscript" uri="mainScene.brs" /> 
+
+	<children>
+		<Overhang
+			showClock="true"
+			logoUri="pkg:/images/rolat-logo-blanco.png" />
+
+		<Label
+			id="title"
+			text="Hello students!"
+			font="font:MediumBoldSystemFont"
+			translation="[750,400]"/>                         
+	</children>
+</component>

@@ -6,7 +6,6 @@ sub init()
 end sub
 
 sub showView(viewName as string)
-	?"MS :: showView: ";viewName
 	if m.viewContainer.getChildCount() > 0 then m.viewContainer.removeChildIndex(0)
 
 	if m.stackView.doesExist(viewName) then

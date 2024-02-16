@@ -4,6 +4,8 @@
             <field id="name" type="string" alias="title.text" />
             <field id="posterUri" type="uri" alias="icon.uri" />
             <field id="viewName" type="string"/>
+            <!-- <field id="selected" type="boolean" default="false" onChange="onSelectedStatusChanged" /> -->
+            <function name="hideTitle" />
         </interface>
 
         <script type="text/brightscript" uri="iconItem.brs" />

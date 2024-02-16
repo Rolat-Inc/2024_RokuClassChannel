@@ -1,11 +1,24 @@
 sub init()
+	m.items = m.top.findNode("items")
 	m.homeOption = m.top.findNode("homeOption")
 	m.searchOption = m.top.findNode("searchOption")
 	m.top.observeField("focusedChild", "onFocusedChildChange")
 end sub
 
 sub onFocusedChildChange(event as object)
-	if m.top.hasFocus() then m.homeOption.setFocus(true)
+	if m.top.hasFocus() then
+		m.homeOption.setFocus(true)
+		' TODO: Mostrar los títulos de todos los ítems cuando se recupere el foco
+	end if
+end sub
+
+sub hideItemTitles()
+	if m.items.getChildCount() > 0 then
+		for i = 0 to m.items.getChildCount() -1
+			item = m.items.getChild(i)
+			item.callFunc("hideTitle")
+		end for
+	end if
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
@@ -25,6 +38,10 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 				
 				handled = true
 			end if
+		else if key = "OK" then
+			hideItemTitles()
+			' Dar el foco a la vista
+			
 		end if
 	end if
 

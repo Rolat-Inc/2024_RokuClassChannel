@@ -19,3 +19,11 @@ sub updateChildrenColor(colorCode as string)
 	m.icon.blendColor = colorCode
 	m.title.color = colorCode
 end sub
+
+' sub onSelectedStatusChanged()
+' 	m.option.removeChild(m.title)
+' end sub
+
+sub hideTitle()
+	m.option.removeChild(m.title)
+end sub

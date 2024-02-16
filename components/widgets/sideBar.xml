@@ -4,9 +4,9 @@
 
         <children>
             <LayoutGroup
+                id="items"
                 layoutDirection="vert"
-                itemSpacings="[20]"
-                translation="[20,500]">
+                itemSpacings="[20]">
 
                 <IconItem
                     id="homeOption"

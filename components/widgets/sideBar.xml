@@ -18,6 +18,8 @@
                     name="Search"
                     viewName="SearchView"
                     posterUri="https://icon-library.com/images/search-icon-white/search-icon-white-16.jpg" />
+
+                <NuevoComponente/>
             </LayoutGroup>
         </children>
 </component>

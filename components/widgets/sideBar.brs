@@ -3,6 +3,9 @@ sub init()
 	m.homeOption = m.top.findNode("homeOption")
 	m.searchOption = m.top.findNode("searchOption")
 	m.top.observeField("focusedChild", "onFocusedChildChange")
+
+	m.settingsOption = CreateObject("roSGNode", "IconItem")
+	m.top.appendChild(m.settingsOption)
 end sub
 
 sub onFocusedChildChange(event as object)
@@ -23,7 +26,7 @@ end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
 	handled = false
-
+	?"SideBar :: onKeyEvent. Press: ";press;" - key: ";key
 	if press then
 		if key = "down" then
 			if m.homeOption.hasFocus() then

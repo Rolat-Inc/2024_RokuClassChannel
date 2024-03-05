@@ -2,7 +2,8 @@ sub init()
 	m.viewContainer = m.top.findNode("viewContainer")
 
 	m.stackView = {}
-	m.top.findNode("sideBar").setFocus(true)
+	sideBar = m.top.findNode("sideBar")
+	sideBar.setFocus(true)
 end sub
 
 sub showView(viewName as string)
@@ -17,3 +18,9 @@ sub showView(viewName as string)
 
 	m.viewContainer.appendChild(view)
 end sub
+
+function onKeyEvent(key as String, press as Boolean) as Boolean
+	handled = false
+	?"MainScene :: onKeyEvent. Press: ";press;" - key: ";key
+	return handled
+end function

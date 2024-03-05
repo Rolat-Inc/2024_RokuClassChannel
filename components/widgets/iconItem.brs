@@ -27,3 +27,10 @@ end sub
 sub hideTitle()
 	m.option.removeChild(m.title)
 end sub
+
+function onKeyEvent(key as String, press as Boolean) as Boolean
+	handled = false
+	?"IconItem :: onKeyEvent. Press: ";press;" - key: ";key
+	'Si el usuario presiona OK o derecha, dar el foco a la vista
+	return handled
+end function

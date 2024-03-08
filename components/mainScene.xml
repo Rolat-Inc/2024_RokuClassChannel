@@ -2,6 +2,7 @@
 <component name="MainScene" extends="Scene">
 	<interface>
 		<function name="showView" />
+		<function name="setFocusToCurrentView" />
 	</interface>
 
 	<script type="text/brightscript" uri="mainScene.brs" /> 

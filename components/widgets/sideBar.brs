@@ -26,7 +26,6 @@ end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
 	handled = false
-	?"SideBar :: onKeyEvent. Press: ";press;" - key: ";key
 	if press then
 		if key = "down" then
 			if m.homeOption.hasFocus() then
@@ -43,6 +42,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 			end if
 		else if key = "OK" then
 			hideItemTitles()
+			m.top.getScene().callFunc("setFocusToCurrentView")
 			' Dar el foco a la vista
 			
 		end if

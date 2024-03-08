@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="HomeView" extends="Group">
+<component name="HomeView" extends="BaseView">
 	<script type="text/brightscript" uri="homeView.brs" />
 
 	<children>
@@ -11,15 +11,14 @@
 			<Rectangle
 				id="border"
 				color="0xFFFFFF"
-				width="610"
-				height="360" >
+				width="600"
+				height="350" >
 				
 				<Poster
 					id="testPoster"
 					uri="pkg:/images/lp.jpeg"
 					width="600"
-					height="350"
-					translation="[5,5]" />
+					height="350"/>
 			</Rectangle>
 
 			<Rectangle

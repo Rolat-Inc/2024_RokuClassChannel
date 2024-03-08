@@ -1,22 +1,22 @@
 sub init()
+	?"HomeView :: init"
 	m.border = m.top.findNode("border")
 	m.button = m.top.findNode("button")
 	m.poster = m.top.findNode("testPoster")
 	m.buttonLabel = m.top.findNode("label")
-
-	m.top.observeField("focusedChild", "onFocusedChildChange")
 end sub
 
 sub onFocusedChildChange(event as object)
+	?"HV :: onFocusedChildChange: ";m.top.hasFocus()
 	if m.top.hasFocus() then m.border.setFocus(true)
 
 	if m.border.hasFocus() then
-		m.poster.width = 600
-		m.poster.height = 350
+		m.border.width = 610
+		m.border.height = 360
 		m.poster.translation = [5,5]
 	else
-		m.poster.width = 610
-		m.poster.height = 360
+		m.border.width = 600
+		m.border.height = 350
 		m.poster.translation = [0,0]
 	end if
 

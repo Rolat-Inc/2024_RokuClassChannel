@@ -5,6 +5,7 @@ sub init()
 
 	m.itemFocused = 0
 	m.top.observeField("focusedChild", "onFocusedChildChange")
+	setIconsContent()
 end sub
 
 sub onFocusedChildChange(event as object)
@@ -13,6 +14,19 @@ sub onFocusedChildChange(event as object)
 		showItemTitles()
 	end if
 end sub
+
+sub setIconsContent()
+	m.homeOption.content = getIconItemContent("Home", "https://icon-library.com/images/white-home-icon-png/white-home-icon-png-21.jpg")
+	m.searchOption.content = getIconItemContent("Search", "https://icon-library.com/images/search-icon-white/search-icon-white-16.jpg")
+end sub
+
+function getIconItemContent(title as String, posterUrl as String) as object
+	content = createObject("RoSGNode","ContentNode")
+	content.title = title
+	content.HDPosterUrl = posterUrl
+
+	return content
+end function
 
 sub showItemTitles(shouldShow = true as boolean)
 	if m.items.getChildCount() > 0 then

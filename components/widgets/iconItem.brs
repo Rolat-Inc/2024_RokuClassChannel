@@ -15,6 +15,12 @@ sub onFocusedChildChange()
 	end if
 end sub
 
+sub onIconItemContentChanged(event as object)
+	content = event.getData()
+	m.title.text = content.title
+	m.icon.uri = content.HDPosterUrl
+end sub
+
 sub updateChildrenColor(colorCode as string)
 	m.icon.blendColor = colorCode
 	m.title.color = colorCode

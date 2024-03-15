@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="IconItem" extends="Group">
         <interface>
-            <field id="name" type="string" alias="title.text" />
-            <field id="posterUri" type="uri" alias="icon.uri" />
+            <field id="content" type="node" onChange="onIconItemContentChanged" />
             <field id="viewName" type="string"/>
             <!-- <field id="selected" type="boolean" default="false" onChange="onSelectedStatusChanged" /> -->
             <function name="hideTitle" />

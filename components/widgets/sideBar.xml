@@ -10,14 +10,10 @@
 
                 <IconItem
                     id="homeOption"
-                    name="Home"
-                    viewName="HomeView"
-                    posterUri="https://icon-library.com/images/white-home-icon-png/white-home-icon-png-21.jpg" />
+                    viewName="HomeView" />
                 <IconItem
                     id="searchOption"
-                    name="Search"
-                    viewName="SearchView"
-                    posterUri="https://icon-library.com/images/search-icon-white/search-icon-white-16.jpg" />
+                    viewName="SearchView" />
             </LayoutGroup>
         </children>
 </component>

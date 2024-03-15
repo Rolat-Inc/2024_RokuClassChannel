@@ -6,6 +6,7 @@
             <field id="viewName" type="string"/>
             <!-- <field id="selected" type="boolean" default="false" onChange="onSelectedStatusChanged" /> -->
             <function name="hideTitle" />
+            <function name="showTitle" />
         </interface>
 
         <script type="text/brightscript" uri="iconItem.brs" />

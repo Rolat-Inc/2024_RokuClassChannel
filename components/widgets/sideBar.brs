@@ -2,24 +2,29 @@ sub init()
 	m.items = m.top.findNode("items")
 	m.homeOption = m.top.findNode("homeOption")
 	m.searchOption = m.top.findNode("searchOption")
-	m.top.observeField("focusedChild", "onFocusedChildChange")
 
-	m.settingsOption = CreateObject("roSGNode", "IconItem")
-	m.top.appendChild(m.settingsOption)
+	m.itemFocused = 0
+	?"[ROLAT-1] setting m.itemFocused to ";m.itemFocused;" in SB :: init"
+	m.top.observeField("focusedChild", "onFocusedChildChange")
 end sub
 
 sub onFocusedChildChange(event as object)
 	if m.top.hasFocus() then
-		m.homeOption.setFocus(true)
-		' TODO: Mostrar los títulos de todos los ítems cuando se recupere el foco
+		?"[ROLAT-1] SB :: onFocusedChildChange, m.itemFocused: ";m.itemFocused
+		m.items.getChild(m.itemFocused).setFocus(true)
+		showItemTitles()
 	end if
 end sub
 
-sub hideItemTitles()
+sub showItemTitles(shouldShow = true as boolean)
 	if m.items.getChildCount() > 0 then
 		for i = 0 to m.items.getChildCount() -1
 			item = m.items.getChild(i)
-			item.callFunc("hideTitle")
+			if shouldShow then
+				item.callFunc("showTitle")
+			else
+				item.callFunc("hideTitle")
+			end if
 		end for
 	end if
 end sub
@@ -31,20 +36,23 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 			if m.homeOption.hasFocus() then
 				m.homeOption.setFocus(false)
 				m.searchOption.setFocus(true)
+				m.itemFocused++
+				?"[ROLAT-1] setting m.itemFocused to ";m.itemFocused;" in SB :: OKE down()"
+
 				handled = true
 			end if
 		else if key = "up" then 
 			if m.searchOption.hasFocus() then
 				m.searchOption.setFocus(false)
 				m.homeOption.setFocus(true)
-				
+				m.itemFocused--
+				?"[ROLAT-1] setting m.itemFocused to ";m.itemFocused;" in SB :: OKE up()"
+
 				handled = true
 			end if
-		else if key = "OK" then
-			hideItemTitles()
+		else if key = "OK" or key = "right" then
+			showItemTitles(false)
 			m.top.getScene().callFunc("setFocusToCurrentView")
-			' Dar el foco a la vista
-			
 		end if
 	end if
 

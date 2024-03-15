@@ -2,8 +2,8 @@ sub init()
 	m.viewContainer = m.top.findNode("viewContainer")
 
 	m.stackView = {}
-	sideBar = m.top.findNode("sideBar")
-	sideBar.setFocus(true)
+	m.sideBar = m.top.findNode("sideBar")
+	m.sideBar.setFocus(true)
 end sub
 
 sub showView(viewName as string)
@@ -34,12 +34,22 @@ function getCurrentView() as object
 	return currentView
 end function
 
+sub setFocusToSideBar()
+	m.sideBar.setFocus(true)
+end sub
+
 function onKeyEvent(key as String, press as Boolean) as Boolean
 	handled = false
 	
+	?"MS :: onKeyEvent, key: ";key;" - press: ";press
+	if press
+		if key = "back" or key = "left" then
+			setFocusToSideBar()
+			handled = true
+		end if
+    end if
 	return handled
 end function
 
 ' Next class:
-' 1. Volver a enfocar la barra lateral desde las vistas
 ' 2. Interactuar / usar el keyboard

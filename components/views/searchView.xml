@@ -7,11 +7,12 @@
                 layoutDirection="vert"
                 itemSpacings="[10]">
 				
-                <Keyboard
-                    id="keyboard" />
+                <PinPad
+                    id="pinPad"
+                    pinLength="5"/>
                 <Button
                     id="button"
-                    text="Search" />
+                    text="Save" />
             </LayoutGroup>
         </children>
 </component>

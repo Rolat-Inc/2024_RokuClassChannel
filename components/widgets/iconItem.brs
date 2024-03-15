@@ -27,9 +27,3 @@ end sub
 sub showTitle()
 	m.option.appendChild(m.title)
 end sub
-
-function onKeyEvent(key as String, press as Boolean) as Boolean
-	handled = false
-	'Si el usuario presiona OK o derecha, dar el foco a la vista
-	return handled
-end function

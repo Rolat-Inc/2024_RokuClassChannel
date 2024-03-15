@@ -1,5 +1,4 @@
 sub init()
-    ?"SearchView :: init"
     m.pinPad = m.top.findNode("pinPad")
     m.button = m.top.findNode("button")
 
@@ -7,13 +6,11 @@ sub init()
 end sub
 
 sub onFocusedChildChange()
-    ?"SearchView :: onFocusedChildChange: ";m.top.hasFocus()
     if m.top.hasFocus() then m.pinPad.setFocus(true)
 end sub
 
 sub onPinPadTextChanged(event as object)
     pinText = event.getData()
-    ?"SV :: onPinPadTextChanged: ";pinText
 
     if len(pinText) = m.pinPad.pinLength then
         m.button.setFocus(true)

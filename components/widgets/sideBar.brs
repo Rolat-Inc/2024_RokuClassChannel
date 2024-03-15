@@ -4,13 +4,11 @@ sub init()
 	m.searchOption = m.top.findNode("searchOption")
 
 	m.itemFocused = 0
-	?"[ROLAT-1] setting m.itemFocused to ";m.itemFocused;" in SB :: init"
 	m.top.observeField("focusedChild", "onFocusedChildChange")
 end sub
 
 sub onFocusedChildChange(event as object)
 	if m.top.hasFocus() then
-		?"[ROLAT-1] SB :: onFocusedChildChange, m.itemFocused: ";m.itemFocused
 		m.items.getChild(m.itemFocused).setFocus(true)
 		showItemTitles()
 	end if
@@ -46,7 +44,6 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 				m.searchOption.setFocus(false)
 				m.homeOption.setFocus(true)
 				m.itemFocused--
-				?"[ROLAT-1] setting m.itemFocused to ";m.itemFocused;" in SB :: OKE up()"
 
 				handled = true
 			end if

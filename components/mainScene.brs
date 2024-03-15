@@ -41,7 +41,6 @@ end sub
 function onKeyEvent(key as String, press as Boolean) as Boolean
 	handled = false
 	
-	?"MS :: onKeyEvent, key: ";key;" - press: ";press
 	if press
 		if key = "back" or key = "left" then
 			setFocusToSideBar()
@@ -50,6 +49,3 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     end if
 	return handled
 end function
-
-' Next class:
-' 2. Interactuar / usar el keyboard

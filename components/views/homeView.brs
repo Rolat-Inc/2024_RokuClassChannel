@@ -7,7 +7,6 @@ sub init()
 end sub
 
 sub onFocusedChildChange(event as object)
-	?"HV :: onFocusedChildChange: ";m.top.hasFocus()
 	if m.top.hasFocus() then m.border.setFocus(true)
 
 	if m.border.hasFocus() then
@@ -33,7 +32,6 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 	handled = false
 	
 	if press then
-		?"HV :: onKeyEvent, key: ";key;" - press: ";press
 		if key = "down" then
 			if m.border.hasFocus() then
 				m.border.setFocus(false)

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="PosterGridBar" extends="Group">
+        <script type="text/brightscript" uri="posterGridBar.brs" />
+
+        <children>
+            <PosterGrid
+				id="posterGrid"
+				translation="[400,400]"
+				basePosterSize="[70,70]"
+				itemSpacing="[0,20]"
+				caption1NumLines="1"
+				numColumns="1"
+				numRows="5"/>
+        </children>
+</component>

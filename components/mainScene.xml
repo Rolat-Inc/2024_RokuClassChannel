@@ -21,7 +21,8 @@
 				itemSpacings="[20,100]"
 				addItemSpacingAfterChild="false">
 
-				<SideBar id="sideBar"/>
+				<!-- <SideBar id="sideBar"/> -->
+				<PosterGridBar id="posterGridBar" />
 				<Group id="viewContainer"/>
 			</LayoutGroup>
 		</LayoutGroup>                      

@@ -2,8 +2,8 @@ sub init()
 	m.viewContainer = m.top.findNode("viewContainer")
 
 	m.stackView = {}
-	m.sideBar = m.top.findNode("sideBar")
-	m.sideBar.setFocus(true)
+	' m.sideBar = m.top.findNode("sideBar")
+	' m.sideBar.setFocus(true)
 end sub
 
 sub showView(viewName as string)
@@ -35,7 +35,7 @@ function getCurrentView() as object
 end function
 
 sub setFocusToSideBar()
-	m.sideBar.setFocus(true)
+	' m.sideBar.setFocus(true)
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean

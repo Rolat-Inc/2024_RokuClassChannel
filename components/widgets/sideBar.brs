@@ -49,7 +49,6 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 				m.homeOption.setFocus(false)
 				m.searchOption.setFocus(true)
 				m.itemFocused++
-				?"[ROLAT-1] setting m.itemFocused to ";m.itemFocused;" in SB :: OKE down()"
 
 				handled = true
 			end if

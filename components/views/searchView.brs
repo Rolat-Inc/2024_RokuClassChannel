@@ -1,35 +1,42 @@
 sub init()
-    m.pinPad = m.top.findNode("pinPad")
-    m.button = m.top.findNode("button")
+    bindComponents()
+    bindObservers()
+end sub
 
-    m.pinPad.observeField("pin", "onPinPadTextChanged")
+sub bindComponents()
+    m.miniKeyboard = m.top.findNode("miniKeyboard")
+    m.button = m.top.findNode("button")
+end sub
+
+sub bindObservers()
+    m.miniKeyboard.observeField("text", "onTextEntered")
 end sub
 
 sub onFocusedChildChange()
-    if m.top.hasFocus() then m.pinPad.setFocus(true)
+    if m.top.hasFocus() then m.miniKeyboard.setFocus(true)
 end sub
 
-sub onPinPadTextChanged(event as object)
-    pinText = event.getData()
-
-    if len(pinText) = m.pinPad.pinLength then
-        m.button.setFocus(true)
-        m.pinPad.unobserveField("pin")
+sub onTextEntered(event as object)
+    text = event.getData()
+    
+    if Len(text) = 3 then
+        '
     end if
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
 	handled = false
     
+    ?"SearchView :: onKeyEvent, key: ";key;" - press: ";press
 	if press then
 		if key = "down" then
-            if m.pinPad.isInFocusChain() then
+            if m.miniKeyboard.isInFocusChain() then
                 m.button.setFocus(true)
                 handled = true
             end if
         else if key = "up" then
             if m.button.hasFocus() then
-                m.pinPad.setFocus(true)
+                m.miniKeyboard.setFocus(true)
             end if
         end if
     end if

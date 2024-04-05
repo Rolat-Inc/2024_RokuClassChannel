@@ -10,7 +10,7 @@
 	<children>
 		<LayoutGroup
 			layoutDirection="vert"
-			itemSpacings="[70]">
+			itemSpacings="[20]">
 
 			<Overhang
 				showClock="true"

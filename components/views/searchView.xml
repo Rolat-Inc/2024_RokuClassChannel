@@ -4,15 +4,21 @@
 
         <children>
             <LayoutGroup
-                layoutDirection="vert"
-                itemSpacings="[10]">
-				
-                <PinPad
-                    id="pinPad"
-                    pinLength="5"/>
-                <Button
-                    id="button"
-                    text="Save" />
+                layoutDirection="horiz">
+            
+                <LayoutGroup
+                    layoutDirection="vert"
+                    itemSpacings="[10]">
+                    
+                    <MiniKeyboard
+                        id="miniKeyboard"/>
+
+                    <Button
+                        id="button"
+                        text="Save" />
+                </LayoutGroup>
+
+                <Rowlist/>
             </LayoutGroup>
         </children>
 </component>

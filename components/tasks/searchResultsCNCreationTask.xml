@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="IconItem" extends="Group">
+<component name="SearchResultsCNCreationTask" extends="Task">
         <interface>
-            <field id="content" type="node" onChange="onIconItemContentChanged" />
-            <field id="viewName" type="string"/>
-            <function name="hideTitle" />
-            <function name="showTitle" />
+            <field id="output" type="node" />
         </interface>
 
-        <script type="text/brightscript" uri="iconItem.brs" />
+        <script type="text/brightscript" uri="searchResultsCNCreationTask.brs" />
 
         <children>
             <LayoutGroup

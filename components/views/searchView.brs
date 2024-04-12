@@ -6,6 +6,7 @@ end sub
 sub bindComponents()
     m.miniKeyboard = m.top.findNode("miniKeyboard")
     m.button = m.top.findNode("button")
+    m.resultsRowList = m.top.findNode("resultsRowList")
 end sub
 
 sub bindObservers()
@@ -20,8 +21,23 @@ sub onTextEntered(event as object)
     text = event.getData()
     
     if Len(text) = 3 then
-        '
+        getResultsRowlistContent()
     end if
+end sub
+
+sub getResultsRowlistContent()
+    m.searchResultsCNCreationTask = CreateObject("roSGNode", "SearchResultsCNCreationTask")
+    m.searchResultsCNCreationTask.functionName = "createSearchResultsContentNode"
+    m.searchResultsCNCreationTask.observeField("output", "onSearchResultsReceived")
+    m.searchResultsCNCreationTask.control = "RUN"
+end sub
+
+sub onSearchResultsReceived(event as object)
+    m.resultsRowList.content = event.getData() 'm.searchResultsCNCreationTask.output
+    m.resultsRowList.setFocus(true)
+    m.searchResultsCNCreationTask.control = "STOP"
+    m.searchResultsCNCreationTask.unobserveField("output")
+    m.searchResultsCNCreationTask = invalid
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean

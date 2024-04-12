@@ -4,7 +4,8 @@
 
         <children>
             <LayoutGroup
-                layoutDirection="horiz">
+                layoutDirection="horiz"
+                itemSpacings="[20]">
             
                 <LayoutGroup
                     layoutDirection="vert"
@@ -18,7 +19,18 @@
                         text="Save" />
                 </LayoutGroup>
 
-                <Rowlist/>
+                <RowList 
+                    id = "resultsRowList"
+                    numRows = "4"
+                    itemSize = "[ 1067, 300 ]"
+                    rowItemSize = "[ [330, 250] ]"
+                    itemSpacing = "[ 0, 40 ]" 
+                    rowItemSpacing = "[20, 20]"
+                    showRowLabel = "[ true ]"
+                    showRowCounter = "[ true ]"
+                    focusBitmapUri = "pkg:/images/focus_grid.9.png"
+                    vertFocusAnimationStyle = "fixedFocusWrap" 
+                    rowFocusAnimationStyle = "fixedFocus" />
             </LayoutGroup>
         </children>
 </component>

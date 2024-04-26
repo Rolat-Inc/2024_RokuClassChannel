@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="ResultsItem" extends="Group">
+        <interface>
+            <field id="width" type="float" onChange="onWidthChanged" />
+            <field id="height" type="float"/>
+            <field id="itemContent" type="node" onChange="onItemContentChanged" />
+            <field id="itemHasFocus" type="boolean" onChange="onItemHasFocusChanged" />
+        </interface>
+
+        <script type="text/brightscript" uri="resultsItem.brs" />
+
+        <children>
+            <Poster
+                id = "focusBorder"
+                uri = "pkg:/images/focus_grid.9.png"
+                visible = "false" />
+            
+            <LayoutGroup
+                id="container"
+                layoutDirection="vert"
+                itemSpacings="[20]">
+
+                <Poster
+                    id = "contentImage"
+                    height = "250">
+
+                    <Rectangle
+                        id = "titleBackground"
+                        color = "#000000"
+                        height = "40"
+                        translation = "[0, 210]">
+
+                        <Label
+                            id = "contentTitle"/>
+                    
+                    </Rectangle>
+                </Poster>
+
+                <Label
+                    id = "contentDescription"
+                    wrap = "true"
+                    maxLines = "2"
+                    visible = "false" />
+            </LayoutGroup>
+        </children>
+</component>

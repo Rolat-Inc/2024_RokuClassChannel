@@ -19,16 +19,16 @@
                         text="Save" />
                 </LayoutGroup>
 
-                <RowList 
+                <RowList
                     id = "resultsRowList"
+                    itemComponentName = "ResultsItem"
                     numRows = "4"
-                    itemSize = "[ 1067, 300 ]"
-                    rowItemSize = "[ [330, 250] ]"
-                    itemSpacing = "[ 0, 40 ]" 
-                    rowItemSpacing = "[20, 20]"
-                    showRowLabel = "[ true ]"
-                    showRowCounter = "[ true ]"
-                    focusBitmapUri = "pkg:/images/focus_grid.9.png"
+                    itemSize = "[1070,450]"
+                    rowItemSize = "[[360, 400]]"
+                    rowItemSpacing = "[[40,0]]"
+                    drawFocusFeedback = "false"
+                    showRowLabel = "[true]"
+                    showRowCounter = "[true]"
                     vertFocusAnimationStyle = "fixedFocusWrap" 
                     rowFocusAnimationStyle = "fixedFocus" />
             </LayoutGroup>

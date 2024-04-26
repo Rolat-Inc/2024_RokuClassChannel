@@ -7,21 +7,5 @@
         <script type="text/brightscript" uri="searchResultsCNCreationTask.brs" />
 
         <children>
-            <LayoutGroup
-                id="option"
-                layoutDirection="horiz"
-                itemSpacings="[10]">
-                
-                <Poster
-                    id="icon"
-                    height="31"
-                    width="31"
-                    blendColor="0x999999"/>
-
-                <Label
-                    id="title"
-                    color="0x999999"/>
-
-            </LayoutGroup>
         </children>
 </component>

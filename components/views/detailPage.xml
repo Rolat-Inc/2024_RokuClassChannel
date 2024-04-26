@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="DetailPage" extends="BaseView">
+	<script type="text/brightscript" uri="detailPage.brs" />
+
+	<children>
+        <Label id = "contentTitle" />
+	</children>
+</component>

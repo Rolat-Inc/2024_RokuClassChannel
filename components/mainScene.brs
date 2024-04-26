@@ -2,12 +2,16 @@ sub init()
 	m.viewContainer = m.top.findNode("viewContainer")
 
 	m.stackView = {}
+	m.lastVisibleView = invalid
 	m.sideBar = m.top.findNode("sideBar")
 	m.sideBar.setFocus(true)
 end sub
 
-sub showView(viewName as string)
-	if m.viewContainer.getChildCount() > 0 then m.viewContainer.removeChildIndex(0)
+sub showView(viewName as string, params = invalid as object)
+	if m.viewContainer.getChildCount() > 0 then
+		m.lastVisibleView = m.viewContainer.getChild(0).subtype()
+		m.viewContainer.removeChildIndex(0)
+	end if
 
 	if m.stackView.doesExist(viewName) then
 		view = m.stackView[viewName]
@@ -15,6 +19,8 @@ sub showView(viewName as string)
 		view = CreateObject("roSGNode", viewName)
 		m.stackView[viewName] = view
 	end if
+
+	if params <> invalid then view.params = params
 
 	m.viewContainer.appendChild(view)
 end sub
@@ -36,6 +42,13 @@ end function
 
 sub setFocusToSideBar()
 	m.sideBar.setFocus(true)
+end sub
+
+sub showLastVisibleView()
+	if m.lastVisibleView <> invalid then
+		showView(m.lastVisibleView)
+		setFocusToCurrentView()
+	end if
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean

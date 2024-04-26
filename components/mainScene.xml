@@ -3,6 +3,7 @@
 	<interface>
 		<function name="showView" />
 		<function name="setFocusToCurrentView" />
+		<function name="showLastVisibleView" />
 	</interface>
 
 	<script type="text/brightscript" uri="mainScene.brs" /> 

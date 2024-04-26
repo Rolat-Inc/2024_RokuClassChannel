@@ -11,6 +11,7 @@ end sub
 
 sub bindObservers()
     m.miniKeyboard.observeField("text", "onTextEntered")
+    m.resultsRowList.observeField("rowItemSelected", "onRowItemSelectedChanged")
 end sub
 
 sub onFocusedChildChange()
@@ -25,6 +26,18 @@ sub onTextEntered(event as object)
     end if
 end sub
 
+sub onRowItemSelectedChanged()
+    rowItemSelected = m.resultsRowList.rowItemSelected ' [índice de la fila, índice del item seleccionado]
+    itemSelectedContent = m.resultsRowList.content.getChild(rowItemSelected[0]).getChild(rowItemSelected[1])
+
+    params = {
+        contentTitle: itemSelectedContent.title
+    }
+    
+    m.top.getScene().callFunc("showView", "DetailPage", params)
+    m.top.getScene().callFunc("setFocusToCurrentView")
+end sub
+
 sub getResultsRowlistContent()
     m.searchResultsCNCreationTask = CreateObject("roSGNode", "SearchResultsCNCreationTask")
     m.searchResultsCNCreationTask.functionName = "createSearchResultsContentNode"
@@ -33,8 +46,7 @@ sub getResultsRowlistContent()
 end sub
 
 sub onSearchResultsReceived(event as object)
-    m.resultsRowList.content = event.getData() 'm.searchResultsCNCreationTask.output
-    m.resultsRowList.setFocus(true)
+    m.resultsRowList.content = event.getData()
     m.searchResultsCNCreationTask.control = "STOP"
     m.searchResultsCNCreationTask.unobserveField("output")
     m.searchResultsCNCreationTask = invalid
@@ -53,6 +65,16 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         else if key = "up" then
             if m.button.hasFocus() then
                 m.miniKeyboard.setFocus(true)
+            end if
+        else if key = "right" then
+            if m.miniKeyboard.isInFocusChain() and m.resultsRowList.content <> invalid then
+                m.resultsRowList.setFocus(true)
+                handled = true
+            end if
+        else if key = "left" then
+            if m.resultsRowList.isInFocusChain() then
+                m.miniKeyboard.setFocus(true)
+                handled = true
             end if
         end if
     end if

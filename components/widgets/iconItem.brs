@@ -9,7 +9,7 @@ end sub
 sub onFocusedChildChange()
 	if m.top.hasFocus() then
 		updateChildrenColor("#ffffff")
-		m.top.getScene().callFunc("showView", m.top.viewName)
+		m.global.navigationHandler.callFunc("showView", m.top.viewName)
 	else
 		updateChildrenColor("#999999")
 	end if

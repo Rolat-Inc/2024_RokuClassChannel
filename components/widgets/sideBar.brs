@@ -62,7 +62,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 			end if
 		else if key = "OK" or key = "right" then
 			showItemTitles(false)
-			m.top.getScene().callFunc("setFocusToCurrentView")
+			m.global.navigationHandler.callFunc("setFocusToCurrentView")
 		end if
 	end if
 

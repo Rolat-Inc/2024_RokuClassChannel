@@ -34,8 +34,8 @@ sub onRowItemSelectedChanged()
         contentTitle: itemSelectedContent.title
     }
     
-    m.top.getScene().callFunc("showView", "DetailPage", params)
-    m.top.getScene().callFunc("setFocusToCurrentView")
+    m.global.navigationHandler.callFunc("showView", "DetailPage", params)
+    m.global.navigationHandler.callFunc("setFocusToCurrentView")
 end sub
 
 sub getResultsRowlistContent()

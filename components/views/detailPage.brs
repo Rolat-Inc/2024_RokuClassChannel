@@ -20,7 +20,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 	
 	if press
 		if key = "back" then
-			m.top.getScene().callFunc("showLastVisibleView")
+			m.global.navigationHandler.callFunc("showLastVisibleView")
 			handled = true
 		end if
     end if

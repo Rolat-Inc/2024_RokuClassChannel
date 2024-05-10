@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="MainScene" extends="Scene">
-	<interface>
-		<function name="showView" />
-		<function name="setFocusToCurrentView" />
-		<function name="showLastVisibleView" />
-	</interface>
-
 	<script type="text/brightscript" uri="mainScene.brs" /> 
 
 	<children>
@@ -23,7 +17,7 @@
 				addItemSpacingAfterChild="false">
 
 				<SideBar id="sideBar"/>
-				<Group id="viewContainer"/>
+				<NavigationHandler id="navigationHanlder"/>
 			</LayoutGroup>
 		</LayoutGroup>                      
 	</children>

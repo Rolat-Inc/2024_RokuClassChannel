@@ -12,9 +12,9 @@ sub bindComponents()
 end sub
 
 sub setDesignProperties()
-    m.focusBorder.height = m.contentImage.height 
+    m.focusBorder.height = m.contentImage.height + (m.borderPadding * 2)
     m.contentImage.height = m.contentImage.height  - (m.borderPadding * 2)
-    m.top.findNode("container").translation = [m.borderPadding, m.borderPadding]
+    m.contentImage.translation = [m.borderPadding, m.borderPadding]
 end sub
 
 sub onWidthChanged()
@@ -23,11 +23,6 @@ sub onWidthChanged()
     m.contentTitle.width = m.top.width - (m.borderPadding * 2)
     m.contentDescription.width = m.top.width - (m.borderPadding * 2)
     m.focusBorder.width = m.top.width
-
-    ?"item has focus: ";m.top.itemHasFocus
-    ?"focus border widht - height: ";m.focusBorder.width;" - ";m.focusBorder.height;" - visible: ";m.focusBorder.visible
-    ?"contentImage widht - height: ";m.contentImage.width;" - ";m.contentImage.height
-    ?"container translation: ";m.top.findNode("container").translation
 end sub
 
 sub onItemContentChanged(event as object)
@@ -39,7 +34,11 @@ sub onItemContentChanged(event as object)
 end sub
 
 sub onItemHasFocusChanged()
-    ?"itemHasFocus: ";m.top.itemHasFocus
-    m.focusBorder.visible = m.top.itemHasFocus
+    if m.top.itemHasFocus then
+        m.focusBorder.color = "0xFFFFFF"
+    else
+        m.focusBorder.color = "0xFFFFFF00"
+    end if
     m.contentDescription.visible = m.top.itemHasFocus
+  
 end sub

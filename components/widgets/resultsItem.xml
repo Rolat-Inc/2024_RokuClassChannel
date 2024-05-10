@@ -10,31 +10,31 @@
         <script type="text/brightscript" uri="resultsItem.brs" />
 
         <children>
-            <Poster
-                id = "focusBorder"
-                uri = "pkg:/images/focus_grid.9.png"
-                visible = "false" />
-            
             <LayoutGroup
                 id="container"
                 layoutDirection="vert"
                 itemSpacings="[20]">
 
-                <Poster
-                    id = "contentImage"
-                    height = "250">
+                <Rectangle
+                    id = "focusBorder"
+                    color = "#FFFFFF00">
 
-                    <Rectangle
-                        id = "titleBackground"
-                        color = "#000000"
-                        height = "40"
-                        translation = "[0, 210]">
+                    <Poster
+                        id = "contentImage"
+                        height = "250">
 
-                        <Label
-                            id = "contentTitle"/>
-                    
-                    </Rectangle>
-                </Poster>
+                        <Rectangle
+                            id = "titleBackground"
+                            color = "#000000"
+                            height = "40"
+                            translation = "[0, 210]">
+
+                            <Label
+                                id = "contentTitle"/>
+                        
+                        </Rectangle>
+                    </Poster>
+                </Rectangle>
 
                 <Label
                     id = "contentDescription"

@@ -27,8 +27,7 @@ end sub
 
 sub onItemContentChanged(event as object)
     m.itemContent = event.getData()
-
-    m.contentImage.uri = m.itemContent?.FHDPOSTERURL
+    m.contentImage.uri = m.itemContent?.HDPOSTERURL
     m.contentTitle.text = m.itemContent?.title
     m.contentDescription.text = m.itemContent?.description
 end sub
@@ -40,5 +39,4 @@ sub onItemHasFocusChanged()
         m.focusBorder.color = "0xFFFFFF00"
     end if
     m.contentDescription.visible = m.top.itemHasFocus
-  
 end sub

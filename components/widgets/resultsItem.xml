@@ -21,13 +21,13 @@
 
                     <Poster
                         id = "contentImage"
-                        height = "250">
+                        height = "600">
 
                         <Rectangle
                             id = "titleBackground"
                             color = "#000000"
                             height = "40"
-                            translation = "[0, 210]">
+                            translation = "[0, 560]">
 
                             <Label
                                 id = "contentTitle"/>

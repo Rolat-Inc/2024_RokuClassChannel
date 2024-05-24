@@ -1,5 +1,6 @@
 out/
 out/roku-deploy.zip
+out/.roku-deploy.zip
 out/.roku-deploy-staging/manifest
 out/.roku-deploy-staging/components/mainScene.brs
 out/.roku-deploy-staging/components/mainScene.xml
@@ -28,3 +29,4 @@ out/.roku-deploy-staging/images/splash_fhd.png
 out/.roku-deploy-staging/images/splash_hd.png
 out/.roku-deploy-staging/images/splash_sd.png
 out/.roku-deploy-staging/source/main.brs
+.vscode/

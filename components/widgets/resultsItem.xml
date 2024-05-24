@@ -40,7 +40,8 @@
                     id = "contentDescription"
                     wrap = "true"
                     maxLines = "2"
-                    visible = "false" />
+                    visible = "false"
+                    font = "font:SmallestSystemFont"  />
             </LayoutGroup>
         </children>
 </component>

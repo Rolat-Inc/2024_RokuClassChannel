@@ -11,7 +11,8 @@ sub createSearchResultsContentNode()
         catalog = response[i]
         item = section.createChild("ContentNode")
         item.title = catalog.title
-        item.HDPOSTERURL = catalog.image 
+        item.HDPOSTERURL = catalog.image
+        item.description = catalog.description
     end for
 
     m.top.output = content 
@@ -21,6 +22,7 @@ function getContent()
     request = CreateObject("roUrlTransfer")
     request.setCertificatesFile("common:/certs/ca-bundle.crt")
     request.initClientCertificates()
+    serviceUrl = "https://imdb-top-100-movies.p.rapidapi.com/"
 
     headers = {}
     headers["X-RapidAPI-Key"] = "98039b3cb3msh92a7b0381e55adcp10cb23jsncaa25ed54dd9"
@@ -32,9 +34,9 @@ function getContent()
         end for
     end if
 
-    request.setUrl("https://imdb-top-100-movies.p.rapidapi.com/")
+    request.setUrl(serviceUrl)
     stringObject = request.getToString()
     response = parseJson(stringObject)
-    
+
     return response
 end function

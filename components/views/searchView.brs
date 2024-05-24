@@ -4,6 +4,7 @@ sub init()
 end sub
 
 sub bindComponents()
+    m.lastFocusedId = ""
     m.miniKeyboard = m.top.findNode("miniKeyboard")
     m.button = m.top.findNode("button")
     m.resultsRowList = m.top.findNode("resultsRowList")
@@ -15,7 +16,14 @@ sub bindObservers()
 end sub
 
 sub onFocusedChildChange()
-    if m.top.hasFocus() then m.miniKeyboard.setFocus(true)
+    if m.top.hasFocus() then
+        if m.lastFocusedId <> "" then
+            m[m.lastFocusedId].setFocus(true)
+        else
+            m.miniKeyboard.setFocus(true)
+            m.lastFocusedId = m.miniKeyboard.id
+        end if
+    end if
 end sub
 
 sub onTextEntered(event as object)
@@ -31,7 +39,7 @@ sub onRowItemSelectedChanged()
     itemSelectedContent = m.resultsRowList.content.getChild(rowItemSelected[0]).getChild(rowItemSelected[1])
 
     params = {
-        contentTitle: itemSelectedContent.title
+        content: itemSelectedContent
     }
     
     m.global.navigationHandler.callFunc("showView", "DetailPage", params)
@@ -60,20 +68,24 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 		if key = "down" then
             if m.miniKeyboard.isInFocusChain() then
                 m.button.setFocus(true)
+                m.lastFocusedId = m.button.id
                 handled = true
             end if
         else if key = "up" then
             if m.button.hasFocus() then
                 m.miniKeyboard.setFocus(true)
+                m.lastFocusedId = m.miniKeyboard.id
             end if
         else if key = "right" then
             if m.miniKeyboard.isInFocusChain() and m.resultsRowList.content <> invalid then
                 m.resultsRowList.setFocus(true)
+                m.lastFocusedId = m.resultsRowList.id
                 handled = true
             end if
         else if key = "left" then
             if m.resultsRowList.isInFocusChain() then
                 m.miniKeyboard.setFocus(true)
+                m.lastFocusedId = m.miniKeyboard.id
                 handled = true
             end if
         end if

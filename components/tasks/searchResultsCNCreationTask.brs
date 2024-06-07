@@ -5,38 +5,37 @@ sub createSearchResultsContentNode()
     content = createObject("RoSGNode", "ContentNode") 
     response = getContent()
 
-    section = content.createChild("ContentNode")
+    if response <> invalid and response.count() > 0 then
+        for i = 0 to response.count() - 1
+            section = content.createChild("ContentNode")
+            category = response.categories[i]
+            section.title = response.categories[i].name
 
-    for i = 0 to response.count() - 1
-        catalog = response[i]
-        item = section.createChild("ContentNode")
-        item.title = catalog.title
-        item.HDPOSTERURL = catalog.image
-        item.description = catalog.description
-    end for
+            for j = 0 to category.videos.count() -1
+                videoInfo = category.videos[j]
+                itemContent = section.createChild("ContentNode")
+            
+                itemContent.title = videoInfo.title
+                itemContent.secondaryTitle = videoInfo.subtitle
+                itemContent.HDPOSTERURL = videoInfo.thumb
+                itemContent.description = videoInfo.description
+                itemContent.setFields({
+                    contentUrl: videoInfo.sources
+                })
+            end for
+        end for
+    end if
 
     m.top.output = content 
 end sub
 
 function getContent()
     request = CreateObject("roUrlTransfer")
-    request.setCertificatesFile("common:/certs/ca-bundle.crt")
-    request.initClientCertificates()
-    serviceUrl = "https://imdb-top-100-movies.p.rapidapi.com/"
+    request.SetCertificatesFile("common:/certs/ca-bundle.crt")
+    request.AddHeader("X-Roku-Reserved-Dev-Id", "")
+    request.InitClientCertificates()
+    request.SetUrl("https://cdn-media.brightline.tv/recruiting/roku/testapi.json")
+    responseApi = ParseJson(request.GetToString()) 
 
-    headers = {}
-    headers["X-RapidAPI-Key"] = "98039b3cb3msh92a7b0381e55adcp10cb23jsncaa25ed54dd9"
-    headers["X-RapidAPI-Host"] = "imdb-top-100-movies.p.rapidapi.com"
-
-    if headers <> invalid then
-        for each item in headers.Items()
-            request.AddHeader(item.key, item.value)
-        end for
-    end if
-
-    request.setUrl(serviceUrl)
-    stringObject = request.getToString()
-    response = parseJson(stringObject)
-
-    return response
+    return responseApi
 end function

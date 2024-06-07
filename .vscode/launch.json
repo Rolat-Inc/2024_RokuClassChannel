@@ -8,7 +8,7 @@
             "name": "BrightScript Debug: Launch",
             "type": "brightscript",
             "request": "launch",
-            "host": "192.168.0.5",
+            "host": "${promptForHost}",
             "password": "pluto",
             "rootDir": "${workspaceFolder}"
         }

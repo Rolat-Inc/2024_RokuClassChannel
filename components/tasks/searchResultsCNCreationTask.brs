@@ -19,9 +19,7 @@ sub createSearchResultsContentNode()
                 itemContent.secondaryTitle = videoInfo.subtitle
                 itemContent.HDPOSTERURL = videoInfo.thumb
                 itemContent.description = videoInfo.description
-                itemContent.setFields({
-                    contentUrl: videoInfo.sources
-                })
+                itemContent.url = videoInfo.sources[0]
             end for
         end for
     end if

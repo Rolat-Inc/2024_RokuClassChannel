@@ -4,10 +4,18 @@ sub init()
 	m.sideBar.setFocus(true)
 end sub
 
+' ---------------------------------
+' Navigation handler
+' ---------------------------------
+
 sub initializateNavigationHandler()
 	m.global.addField("navigationHandler", "node", false) 
 	m.global.setField("navigationHandler", m.top.findNode("navigationHanlder"))
 end sub
+
+' ---------------------------------
+' Key handling
+' ---------------------------------
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
 	handled = false

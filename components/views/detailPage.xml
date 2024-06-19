@@ -34,9 +34,5 @@
 				wrap = "true"
 				horizAlign = "center" />
 		</LayoutGroup>
-		
-		<Video
-			id="video"
-			visible="false"/>
 	</children>
 </component>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="VideoPlayer" extends="Group">
+	<interface>
+		<field id="incomingMessage" type="assocarray" onChange="onIncomingMessageChanged" />
+	</interface>
+
+	<script type="text/brightscript" uri="videoPlayer.brs" />
+
+	<children>
+		<Video
+			id="video"
+			visible="false"/>    
+	</children>
+</component>

@@ -8,7 +8,6 @@ sub bindComponents()
     m.contentTitle = m.top.findNode("contentTitle")
 	m.contentImage = m.top.findNode("contentImage")
 	m.contentDescription = m.top.findNode("contentDescription")
-	m.video = m.top.findNode("video")
 end sub
 
 sub bindObservers()
@@ -17,7 +16,6 @@ end sub
 
 sub setDesignProperties()
 	setPlayIconProperties()
-	setVideoProperties()
 end sub
 
 sub setPlayIconProperties()
@@ -25,11 +23,6 @@ sub setPlayIconProperties()
 	x = (m.contentImage.width - playIcon.width) / 2
 	y = (m.contentImage.height - playIcon.height) / 2
 	playIcon.translation = [x,y]
-end sub
-
-sub setVideoProperties()
-	m.video.width = 1920/2
-	m.video.height = 1080/2
 end sub
 
 sub onParamsChanged()
@@ -42,20 +35,6 @@ sub onParamsChanged()
 	end if
 end sub
 
-sub playVideo()
-	if m.content <> invalid then
-		?"DP :: playVideo, url: ";m.content.videoUrl
-		videoContent = CreateObject("RoSGNode", "ContentNode")
-		videoContent.url = m.content.url
-		videoContent.streamFormat = "mp4"
-
-		m.video.visible = true
-		m.video.content = videoContent
-		m.video.control = "play"
-		m.video.setFocus(true)
-	end if
-end sub
-
 function onKeyEvent(key as String, press as Boolean) as Boolean
 	handled = false
 	
@@ -64,8 +43,15 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 			m.global.navigationHandler.callFunc("showLastVisibleView")
 			handled = true
 		else if key = "OK" then
-			playVideo()
-			handled = true
+			if m.content <> invalid then
+				m.top.getScene().videoMessage = {
+					control: "play",
+					params: {
+						content: m.content
+					}
+				}
+				handled = true
+			end if
 		end if
     end if
 	return handled

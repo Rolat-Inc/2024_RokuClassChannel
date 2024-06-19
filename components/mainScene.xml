@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="MainScene" extends="Scene">
-	<script type="text/brightscript" uri="mainScene.brs" /> 
+	<interface>
+		<field id="videoMessage" type="assocarray" alias="videoPlayer.incomingMessage" />
+	</interface>
+
+	<script type="text/brightscript" uri="mainScene.brs" />
 
 	<children>
 		<LayoutGroup
@@ -19,6 +23,9 @@
 				<SideBar id="sideBar"/>
 				<NavigationHandler id="navigationHanlder"/>
 			</LayoutGroup>
-		</LayoutGroup>                      
+		</LayoutGroup>
+
+		<VideoPlayer
+			id="videoPlayer"/>
 	</children>
 </component>

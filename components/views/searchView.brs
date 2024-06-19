@@ -63,8 +63,8 @@ end sub
 function onKeyEvent(key as String, press as Boolean) as Boolean
 	handled = false
     
-    ?"SearchView :: onKeyEvent, key: ";key;" - press: ";press
 	if press then
+        ?"SearchView :: onKeyEvent, key: ";key;" - press: ";press
 		if key = "down" then
             if m.miniKeyboard.isInFocusChain() then
                 m.button.setFocus(true)

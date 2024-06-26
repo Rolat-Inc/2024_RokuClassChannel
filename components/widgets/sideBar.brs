@@ -8,7 +8,7 @@ sub init()
 	setIconsContent()
 end sub
 
-sub onFocusedChildChange(event as object)
+sub onFocusedChildChange()
 	if m.top.hasFocus() then
 		m.items.getChild(m.itemFocused).setFocus(true)
 		showItemTitles()

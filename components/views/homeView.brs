@@ -6,7 +6,7 @@ sub init()
 	m.buttonLabel = m.top.findNode("label")
 end sub
 
-sub onFocusedChildChange(event as object)
+sub onFocusedChildChange()
 	if m.top.hasFocus() then m.border.setFocus(true)
 
 	if m.border.hasFocus() then

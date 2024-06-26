@@ -5,10 +5,13 @@
 	<children>
 		<LayoutGroup
 			layoutDirection = "vert"
-			itemSpacings = "[30]"
+			itemSpacings = "[5, 30]"
 			horizAlignment = "center"
         	vertAlignment = "top">
 			
+			<Label
+				id="counterLabel" />
+
 			<Poster
 				id = "contentImage"
 				width = "654"
@@ -34,5 +37,10 @@
 				wrap = "true"
 				horizAlign = "center" />
 		</LayoutGroup>
+
+		<Timer
+			id="counterTimer"
+			duration="1"
+			repeat="true"/>
 	</children>
 </component>

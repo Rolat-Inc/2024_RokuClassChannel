@@ -2,16 +2,20 @@ sub init()
     bindComponents()
     bindObservers()
 	setDesignProperties()
+	m.seconds = 0
 end sub
 
 sub bindComponents()
+	m.counterLabel = m.top.findNode("counterLabel")
     m.contentTitle = m.top.findNode("contentTitle")
 	m.contentImage = m.top.findNode("contentImage")
 	m.contentDescription = m.top.findNode("contentDescription")
+	m.counterTimer = m.top.findNode("counterTimer")
 end sub
 
 sub bindObservers()
     m.top.observeField("params", "onParamsChanged")
+	m.counterTimer.observeField("fire", "onCounterTimerFired")
 end sub
 
 sub setDesignProperties()
@@ -25,6 +29,12 @@ sub setPlayIconProperties()
 	playIcon.translation = [x,y]
 end sub
 
+sub onCounterTimerFired()
+	m.seconds++
+	m.counterLabel.text = m.seconds.toStr()
+	if m.seconds = 1000 then m.counterTimer.control = "stop"
+end sub
+
 sub onParamsChanged()
     m.content = m.top.params?.content
 
@@ -32,6 +42,7 @@ sub onParamsChanged()
 		m.contentTitle.text = m.content.title
 		m.contentImage.uri = m.content.HDPOSTERURL
 		m.contentDescription.text = m.content.description
+		m.counterTimer.control = "start"
 	end if
 end sub
 

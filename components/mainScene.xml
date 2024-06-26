@@ -26,6 +26,7 @@
 		</LayoutGroup>
 
 		<VideoPlayer
-			id="videoPlayer"/>
+			id="videoPlayer"
+			visible="false"/>
 	</children>
 </component>

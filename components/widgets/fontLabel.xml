@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="FontLabel" extends="Label">
+        <interface>
+            <field id="uri" type="uri" alias="font.uri" />
+            <field id="size" type="integer" alias="font.size" />
+        </interface>
+
+
+        <children>
+            <Font
+                id = "font"
+                role = "font"/>
+        </children>
+</component>

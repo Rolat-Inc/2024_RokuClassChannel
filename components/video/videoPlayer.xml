@@ -14,8 +14,10 @@
 			opacity="0.7"
 			translation="[910,890]">
 
-			<Label
-				id="speedMultiplierLabel"/>
+			<FontLabel
+				id="speedMultiplierLabel"
+				uri="pkg:/fonts/Black.ttf"
+				size="40"/>
 		</Rectangle>
 
 		<Timer

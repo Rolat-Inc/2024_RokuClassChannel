@@ -7,18 +7,10 @@
 	<script type="text/brightscript" uri="videoPlayer.brs" />
 
 	<children>
-		<Rectangle
-			width="100"
-			height="50"
-			color="0x000000"
-			opacity="0.7"
-			translation="[910,890]">
-
-			<FontLabel
-				id="speedMultiplierLabel"
-				uri="pkg:/fonts/Black.ttf"
-				size="40"/>
-		</Rectangle>
+		<Label
+			id="speedMultiplierLabel"
+			font = "font:MediumBoldSystemFont"
+			translation="[910,890]" />
 
 		<Timer
 			id="counterTimer"

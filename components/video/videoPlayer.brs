@@ -54,6 +54,7 @@ end sub
 sub stopCounterTimer()
 	m.counterTimer.control = "stop"
 	m.transportInfo.multiplier = 1
+	m.transportInfo.counter = 0
 	m.speedMultiplierLabel.text = ""
 end sub
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="AudioGuideHandler" extends="Node">
+	<interface>
+		<function name="audioGuideRead"/>
+	</interface>
+	
+	<script type="text/brightscript" uri="../functions/utils.brs" />
+	<script type="text/brightscript" uri="audioGuideHandler.brs" />
+
+	<children>
+	</children>
+</component>

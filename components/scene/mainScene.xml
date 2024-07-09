@@ -2,9 +2,11 @@
 <component name="MainScene" extends="Scene">
 	<interface>
 		<field id="videoMessage" type="assocarray" alias="videoPlayer.incomingMessage" />
+		<function name="unmuteMainScene"/>
 	</interface>
 
 	<script type="text/brightscript" uri="mainScene.brs" />
+	<script type="text/brightscript" uri="../functions/utils.brs" />
 
 	<children>
 		<LayoutGroup

@@ -23,6 +23,8 @@ sub onFocusedChildChange()
             m.miniKeyboard.setFocus(true)
             m.lastFocusedId = m.miniKeyboard.id
         end if
+        m.global.audioGuideHandler.callFunc("audioGuideRead", "You are in Search View")
+        unmuteMainScene()
     end if
 end sub
 

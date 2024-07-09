@@ -7,7 +7,11 @@ sub init()
 end sub
 
 sub onFocusedChildChange()
-	if m.top.hasFocus() then m.border.setFocus(true)
+	if m.top.hasFocus() then
+		m.border.setFocus(true)
+		m.global.audioGuideHandler.callFunc("audioGuideRead", "You are in Home View")
+		unmuteMainScene()
+	end if
 
 	if m.border.hasFocus() then
 		m.border.width = 610

@@ -4,6 +4,7 @@ sub init()
 	initializateAudioGuide()
 	m.top.muteAudioGuide = true
 	m.audioGuideHandler.callFunc("audioGuideRead", "Welcome to Roku class channel by Rolat", false)
+	setApiKey()
 	m.sideBar.setFocus(true)
 	' executeAfterDelay("unmuteMainScene", 2)
 end sub
@@ -30,6 +31,13 @@ end sub
 sub unmuteMainScene()
 	m.top.muteAudioGuide = false
 end sub
+
+' ' ---------------------------------
+' ' ApiKey
+' ' ---------------------------------
+sub setApiKey()
+	m.global.addFields({apiKey : "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MmY2NDJjMGQyZjkwOTA0ZDc5YzhkYjJlM2IxOGM5MSIsInN1YiI6IjY1MzZjNjkyOTQ2MzE4MDBlMzgyNTE3OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zgFNEulspcbr8Sy7shuUWaCAVaxCtQmWaWkoNsZzVaU"})
+end sub 
 
 ' ---------------------------------
 ' Key handling

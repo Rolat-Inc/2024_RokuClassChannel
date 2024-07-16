@@ -3,32 +3,20 @@
 	<script type="text/brightscript" uri="homeView.brs" />
 
 	<children>
-		<LayoutGroup
-			layoutDirection="vert"
-			itemSpacings="[100, 50]"
-			translation="[200,250]">
-
-			<Rectangle
-				id="border"
-				color="0xFFFFFF"
-				width="600"
-				height="350" >
-				
-				<Poster
-					id="testPoster"
-					uri="pkg:/images/lp.jpeg"
-					width="600"
-					height="350"/>
-			</Rectangle>
-
-			<Rectangle
-				id="button"
-				color="0x000000"
-				width="300"
-				height="60">
-
-				<Label id="label" text="Aceptar"/>
-			</Rectangle>
-		</LayoutGroup>
+		<RowList 
+            id = "homeRowList" 
+			itemComponentName = "CatalogItem"
+			rowTitleComponentName = "RowTitleItem"
+			vertFocusAnimationStyle = "floatingFocus"
+			rowFocusAnimationStyle = "floatingFocus"
+			focusBitmapBlendColor = "#7d498a"
+			numRows = "2"
+			drawFocusFeedbackOnTop = "true"
+			translation = "[90, 170]"
+			itemSize = "[1700,400]"
+			rowItemSize = "[[185, 278]]"
+			rowItemSpacing = "[[25,40]]"
+			rowLabelOffset = "[[0,24]]"
+			rowSpacings = "[20]" />
 	</children>
 </component>

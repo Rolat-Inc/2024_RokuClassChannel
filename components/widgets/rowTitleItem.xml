@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="RowTitleItem" extends="Group">
+
+    <interface>
+        <field id="content" type="node" onChange="onContentChanged"/>
+    </interface>
+
+    <script type="text/brightscript" uri="./rowTitleItem.brs"/>
+
+    <children>
+        <Rectangle
+            id="rectangle"
+            width="10"
+            height="40"
+            color="#7d498a"/>
+        <Label
+            id="section"
+            translation="[24,3]"/>
+    </children>
+
+</component>

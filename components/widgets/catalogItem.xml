@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<component name="CatalogItem" extends="Group">
+
+     <interface>
+        <field id="itemContent" type="node" onChange="onItemContentChanged"/>
+     </interface>
+     
+    <script type="text/brightscript" uri="catalogItem.brs" /> 
+
+    <children>
+
+        <LayoutGroup
+            id="layoutGroup"
+            layoutDirection="vert"
+            itemSpacings="[20,50]">
+
+            <Poster 
+                id="poster" 
+                width="185"
+                height="278"/>
+
+            <Label 
+                id="title"
+                vertAlign="bottom"
+                width="180"/>
+                
+        </LayoutGroup>
+            
+    </children>
+</component>

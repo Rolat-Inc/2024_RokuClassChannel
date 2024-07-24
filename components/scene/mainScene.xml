@@ -3,9 +3,11 @@
 	<interface>
 		<field id="videoMessage" type="assocarray" alias="videoPlayer.incomingMessage" />
 		<function name="unmuteMainScene"/>
+		<function name="handleTransport"/>
 	</interface>
 
 	<script type="text/brightscript" uri="mainScene.brs" />
+	<script type="text/brightscript" uri="voiceControl.brs" />
 	<script type="text/brightscript" uri="../functions/utils.brs" />
 
 	<children>

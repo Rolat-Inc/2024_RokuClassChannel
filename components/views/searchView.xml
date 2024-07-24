@@ -6,18 +6,9 @@
             <LayoutGroup
                 layoutDirection="horiz"
                 itemSpacings="[20]">
-            
-                <LayoutGroup
-                    layoutDirection="vert"
-                    itemSpacings="[10]">
-                    
-                    <MiniKeyboard
-                        id="miniKeyboard"/>
-
-                    <Button
-                        id="button"
-                        text="Save" />
-                </LayoutGroup>
+                                
+                <MiniKeyboard
+                    id="miniKeyboard"/>
 
                 <RowList
                     id = "resultsRowList"

@@ -14,3 +14,6 @@ splash_screen_hd=pkg:/images/splash_fhd.png
 
 # Resolution
 ui_resolutions=fhd
+
+# Voice control
+supports_voice_roinput=1

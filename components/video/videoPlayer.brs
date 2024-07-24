@@ -168,5 +168,3 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     end if
 	return handled
 end function
-
-' Cuando el video termine, llevar al usuario a la página de detalle

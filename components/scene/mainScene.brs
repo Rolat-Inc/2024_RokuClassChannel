@@ -6,7 +6,7 @@ sub init()
 	m.audioGuideHandler.callFunc("audioGuideRead", "Welcome to Roku class channel by Rolat", false)
 	setApiKey()
 	m.sideBar.setFocus(true)
-	' executeAfterDelay("unmuteMainScene", 2)
+	m.global.addField("homeMoviesList", "node", false) 
 end sub
 
 ' ---------------------------------

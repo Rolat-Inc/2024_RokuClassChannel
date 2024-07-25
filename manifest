@@ -17,3 +17,6 @@ ui_resolutions=fhd
 
 # Voice control
 supports_voice_roinput=1
+
+# Input
+supports_input_launch=1

@@ -18,7 +18,9 @@ sub execute()
             section.title = "Daniela " + ((i / 8) + 1).toStr()
         end if 
         item = section.createChild("ContentNode")
+        item.id = category.id
         item.title = category.title
+        item.url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4"
         item.HDPOSTERURL = imageConfig.baseUrl + "/" + imageConfig.rowlistSize + "/" + category.poster_path
     end for
 

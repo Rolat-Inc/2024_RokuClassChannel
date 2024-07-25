@@ -20,6 +20,7 @@ end sub
 
 sub onContentReceived()
 	m.homeRowList.content = m.contentTask.output
+	m.global.homeMoviesList = m.contentTask.output
 	m.contentTask.control = "STOP"
     m.contentTask.unobserveField("output")
     m.contentTask = invalid

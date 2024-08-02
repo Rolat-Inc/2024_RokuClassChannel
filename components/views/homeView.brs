@@ -1,7 +1,11 @@
 sub init()
 	?"HomeView :: init"
 	m.homeRowList = m.top.findNode("homeRowList")
-	createRowlistContentTask()
+	if m.global.homeMoviesList <> invalid then
+		m.homeMoviesList.content = m.global.homeMoviesList
+	else
+		createRowlistContentTask()
+	end if
 end sub
 
 sub onFocusedChildChange()

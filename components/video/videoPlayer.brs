@@ -33,6 +33,20 @@ sub bindObservers()
 	m.counterTimer.observeField("fire", "onCounterTimerFired")
 end sub
 
+'STRUCTURE OF THE MESSAGE
+' control: To determine what function to execute	* Mandatory
+' params: Params to be sent to the function 		* Optional
+sub onIncomingMessageChanged(event as object)
+	incomingMessage = event.getData()
+	?"VP :: onIncomingMessageChanged: ";incomingMessage
+
+	if incomingMessage <> invalid then
+		if incomingMessage.control = "play" then
+			playVideo(incomingMessage.params.content)
+		end if
+	end if
+end sub
+
 sub onVideoStateChanged(event as object)
 	state = event.getData()
 
@@ -79,20 +93,6 @@ sub closeVideo()
 	m.top.visible = false
 	m.top.content = invalid
 	m.global.navigationHandler.callFunc("setFocusToCurrentView")
-end sub
-
-'STRUCTURE OF THE MESSAGE
-' control: To determine what function to execute	* Mandatory
-' params: Params to be sent to the function 		* Optional
-sub onIncomingMessageChanged(event as object)
-	incomingMessage = event.getData()
-	?"VP :: onIncomingMessageChanged: ";incomingMessage
-
-	if incomingMessage <> invalid then
-		if incomingMessage.control = "play" then
-			playVideo(incomingMessage.params.content)
-		end if
-	end if
 end sub
 
 sub executeSeeking(key as string)

@@ -81,7 +81,7 @@ function getPlaybackItem(contentId as string, moviesList as object)
 end function
 
 sub handlePlaybackItem(playbackItem as object)
-    if playbackItem <> invalid then return
+    if playbackItem = invalid then return
 
     createDetailPage(playbackItem)
     playContent(playbackItem)

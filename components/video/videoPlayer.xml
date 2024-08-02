@@ -5,6 +5,7 @@
 	</interface>
 
 	<script type="text/brightscript" uri="videoPlayer.brs" />
+	<script type="text/brightscript" uri="../utils/registry.brs" />
 
 	<children>
 		<Label

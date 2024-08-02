@@ -35,7 +35,6 @@ sub handleDeepLink(contentId as string, mediaType as string)
 end sub
 
 sub handleMovieDeepLink(contentId)
-    ?"DeepLinkHelper :: handleMovieDeepLink: ";contentId
     if m.global.homeMoviesList <> invalid then
         playbackItem = getPlaybackItem(contentId, m.global.homeMoviesList)
         handlePlaybackItem(playbackItem)

@@ -1,8 +1,9 @@
 sub init()
 	?"HomeView :: init"
 	m.homeRowList = m.top.findNode("homeRowList")
+	m.homeRowList.observeField("rowItemSelected", "onRowItemSelectedChanged")
 	if m.global.homeMoviesList <> invalid then
-		m.homeMoviesList.content = m.global.homeMoviesList
+		m.homeRowList.content = m.global.homeMoviesList
 	else
 		createRowlistContentTask()
 	end if
@@ -28,4 +29,16 @@ sub onContentReceived()
 	m.contentTask.control = "STOP"
     m.contentTask.unobserveField("output")
     m.contentTask = invalid
+end sub
+
+sub onRowItemSelectedChanged()
+    rowItemSelected = m.homeRowList.rowItemSelected
+    itemSelectedContent = m.homeRowList.content.getChild(rowItemSelected[0]).getChild(rowItemSelected[1])
+
+    params = {
+        content: itemSelectedContent
+    }
+    
+    m.global.navigationHandler.callFunc("showView", "DetailPage", params)
+    m.global.navigationHandler.callFunc("setFocusToCurrentView")
 end sub

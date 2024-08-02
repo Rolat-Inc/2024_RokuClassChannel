@@ -62,7 +62,6 @@ end sub
 
 sub onCounterTimerFired()
 	m.transportInfo.counter += m.transportInfo.secondsToSeek * (m.transportInfo.multiplier / 2)
-	?"New counter value: ";m.transportInfo.counter;" - multiplier: ";m.transportInfo.multiplier
 end sub
 
 sub stopCounterTimer()
@@ -74,18 +73,24 @@ end sub
 
 sub playVideo(content as object)
 	videoContent = CreateObject("RoSGNode", "ContentNode")
+	videoContent.id = content.id
 	videoContent.url = content.url
 	videoContent.streamFormat = "mp4"
 	videoContent.title = content.title
 
 	m.top.visible = true
 	m.top.content = videoContent
+	resumePoint = getBookmarkPosition(content.id)
+	if resumePoint > 0 then
+		m.top.seek = resumePoint
+	end if
 	m.top.control = "play"
 	m.top.setFocus(true)
 end sub
 
 sub stopVideo()
 	m.top.control = "stop"
+	updateBookmarkVideoPostion(m.top.content.id, m.top.position)
 	closeVideo()
 end sub
 
@@ -134,36 +139,14 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
 	if press then
 		if key = "back" then
 			if m.top.isInFocusChain() then
-				' si el video estaba pausado y hay un contador
-					' resumir video
-				' pero si el video se estaba reproduciendo entonces:
-					stopVideo()
-					handled = true
+				stopVideo()
+				handled = true
 			end if
 		else if key = "replay" then
 			m.top.seek = 0
 			handled = true
 		else if key = "fastforward" or key = "rewind" then
-			' Requerimientos: 
-			' 1. Definir los segundos que representará X en nuestra aplicación: 10
-			' 2. Definir los múliplos de X: 2X, 4X y 8X
-			'
-			' Implementación
-			' 1. Pausar video
-			' 2. Tener un contador en el que voy a almacenar la cantidad de tiempo que el video se moverá de posición
-			' 3. Tener un timer que incremente el valor cada segundo
-			' 4. Controlar las veces que el usuario presiona RW o FF para incrementar el contador y el multiplicador
-			
-			' Validaciones
-			' 1. Que la posición en donde fue pausado el video + el valor del contador sea > 0 y < que la duración del video
 			executeSeeking(key)
-		else if key = "play" or key ="OK" or key = "pause" then
-			' Mostrar imagen de la película
-			' Si existía un valor en el contador, hacer video.seek hacia la nueva posición (en la que pausó el video + contador)
-				' Reiniciar multiplicador
-			' Si no existía el contador y el video estaba pausado entonces resumir el video, si no estaba pausado entonces pausarlo
-		else if key = "options" then
-			' Dar el foco a componente para opciones de accessibility 
 		end if
     end if
 	return handled

@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="IconItem" extends="Group">
-        <interface>
-            <field id="content" type="node" onChange="onIconItemContentChanged" />
-            <field id="viewName" type="string"/>
-            <function name="hideTitle" />
-            <function name="showTitle" />
-        </interface>
+    <interface>
+        <field id="content" type="node" onChange="onIconItemContentChanged" />
+        <field id="viewName" type="string"/>
+        <function name="hideTitle" />
+        <function name="showTitle" />
+    </interface>
 
-        <script type="text/brightscript" uri="iconItem.brs" />
+    <script type="text/brightscript" uri="iconItem.brs" />
 
-        <children>
-            <LayoutGroup
-                id="option"
-                layoutDirection="horiz"
-                itemSpacings="[10]">
-                
-                <Poster
-                    id="icon"
-                    height="31"
-                    width="31"
-                    blendColor="0x999999"/>
+    <children>
+        <LayoutGroup
+            id="option"
+            layoutDirection="horiz"
+            itemSpacings="[10]">
+            
+            <Poster
+                id="icon"
+                height="31"
+                width="31"
+                blendColor="0x999999"/>
 
-                <Label
-                    id="title"
-                    color="0x999999"/>
+            <Label
+                id="title"
+                color="0x999999"/>
 
-            </LayoutGroup>
-        </children>
+        </LayoutGroup>
+    </children>
 </component>

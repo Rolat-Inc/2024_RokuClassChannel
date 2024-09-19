@@ -5,3 +5,6 @@ end sub
 sub unmuteMainScene()
     m.top.getScene().callFunc("unmuteMainScene")
 end sub
+
+sub onFocusedChildChange()
+end sub

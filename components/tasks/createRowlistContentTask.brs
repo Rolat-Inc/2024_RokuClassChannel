@@ -24,7 +24,7 @@ sub execute()
         item.HDPOSTERURL = imageConfig.baseUrl + "/" + imageConfig.rowlistSize + "/" + category.poster_path
     end for
 
-    m.top.output = content 
+    m.top.output = content
 end sub
 
 function getImageConfig(headers = invalid)

@@ -18,7 +18,7 @@ sub main(args as object)
         msg = wait(0, m.port)  
         msgType = type(msg)
 
-        if msgType = "roSGScreen"
+        if msgType = "roSGScreen" then
             if msg.isScreenClosed() then return
         else if type(msg) = "roInputEvent" then
             info = msg.getInfo()

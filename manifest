@@ -20,3 +20,6 @@ supports_voice_roinput=1
 
 # Input
 supports_input_launch=1
+
+# Instant Resume
+sdk_instant_resume=1

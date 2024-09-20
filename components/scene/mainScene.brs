@@ -39,6 +39,40 @@ sub setApiKey()
 	m.global.addFields({apiKey : "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MmY2NDJjMGQyZjkwOTA0ZDc5YzhkYjJlM2IxOGM5MSIsInN1YiI6IjY1MzZjNjkyOTQ2MzE4MDBlMzgyNTE3OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zgFNEulspcbr8Sy7shuUWaCAVaxCtQmWaWkoNsZzVaU"})
 end sub 
 
+' ' ---------------------------------
+' ' Instant Resume
+' ' ---------------------------------
+function customSuspend(arg as dynamic)
+	?"MS :: customSuspend"
+	m.top.allowBackgroundTask = true
+
+	for each key in arg
+		?" " key " = " arg[key]
+	end for
+
+	m.top.allowBackgroundTask = false
+end function
+
+function customResume(arg as dynamic)
+	?"MS :: customResume"
+	for each key in arg
+		print " " key " = " arg[key]
+	end for
+
+	if arg.launchParams <> invalid
+		launchParams = arg.launchParams
+		if(launchParams.mediaType <> invalid) and (launchParams.contentId <> invalid)
+			print "Deep Link parameters: Media Type "; launchParams.mediaType " Content Id "; launchParams.contentId
+		end if
+	end if
+
+	if m.top.findNode("VideoPlayer").hasFocus() then
+		m.top.videoMessage = {
+			control: "resume",
+		}
+	end if
+end function
+
 ' ---------------------------------
 ' Key handling
 ' ---------------------------------

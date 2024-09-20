@@ -4,6 +4,7 @@ sub main(args as object)
     m.port = CreateObject("roMessagePort")
     screen.setMessagePort(m.port)
     scene = screen.CreateScene("MainScene")
+    scene.allowBackgroundTask = true
     screen.show()
 
     voiceControlInput = CreateObject("roInput")

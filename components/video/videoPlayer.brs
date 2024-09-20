@@ -43,6 +43,11 @@ sub onIncomingMessageChanged(event as object)
 	if incomingMessage <> invalid then
 		if incomingMessage.control = "play" then
 			playVideo(incomingMessage.params.content)
+		else if incomingMessage.control = "resume" then
+			if m.top.content <> invalid then
+				setResumePoint(m.top.content.id)
+				m.top.control = "play"
+			end if
 		end if
 	end if
 end sub
@@ -57,6 +62,9 @@ sub onVideoStateChanged(event as object)
 			m.isSeekingInProgress = false
 			stopCounterTimer()
 		end if
+	else if state = "stopped" then 
+		updateBookmarkVideoPostion(m.top.content.id, m.top.position)
+		m.top.control = "stop"
 	end if
 end sub
 
@@ -80,12 +88,16 @@ sub playVideo(content as object)
 
 	m.top.visible = true
 	m.top.content = videoContent
-	resumePoint = getBookmarkPosition(content.id)
+	setResumePoint(content.id)
+	m.top.control = "play"
+	m.top.setFocus(true)
+end sub
+
+sub setResumePoint(contentId as string)
+	resumePoint = getBookmarkPosition(contentId)
 	if resumePoint > 0 then
 		m.top.seek = resumePoint
 	end if
-	m.top.control = "play"
-	m.top.setFocus(true)
 end sub
 
 sub stopVideo()

@@ -48,6 +48,8 @@ sub onIncomingMessageChanged(event as object)
 				setResumePoint(m.top.content.id)
 				m.top.control = "play"
 			end if
+		else if incomingMessage.control = "continueSubscriptionFlow" then
+			playVideo(invalid, true)
 		end if
 	end if
 end sub
@@ -79,18 +81,24 @@ sub stopCounterTimer()
 	m.speedMultiplierLabel.text = ""
 end sub
 
-sub playVideo(content as object)
-	videoContent = CreateObject("RoSGNode", "ContentNode")
-	videoContent.id = content.id
-	videoContent.url = content.url
-	videoContent.streamFormat = "mp4"
-	videoContent.title = content.title
+sub playVideo(content as object, isSubscriptionFlow = false as boolean)
+	if m.top.content = invalid or (isSubscriptionFlow = false and m.top.content <> invalid) then
+		videoContent = CreateObject("RoSGNode", "ContentNode")
+		videoContent.id = content.id
+		videoContent.url = content.url
+		videoContent.streamFormat = "mp4"
+		videoContent.title = content.title
+		m.top.content = videoContent
+	end if
 
-	m.top.visible = true
-	m.top.content = videoContent
-	setResumePoint(content.id)
-	m.top.control = "play"
-	m.top.setFocus(true)
+	if m.global.isUserActive = true and m.top.content <> invalid then
+		m.top.visible = true
+		setResumePoint(m.top.content.id)
+		m.top.control = "play"
+		m.top.setFocus(true)
+	else
+		showSubscriptionOptions()
+	end if
 end sub
 
 sub setResumePoint(contentId as string)

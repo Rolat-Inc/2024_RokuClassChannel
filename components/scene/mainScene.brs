@@ -4,6 +4,7 @@ sub init()
 	initializateAudioGuide()
 	setApiKey()
 	bindVariables()
+	initializeChannelStore()
 	m.sideBar.setFocus(true)
 end sub
 

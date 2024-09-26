@@ -6,6 +6,7 @@
 
 	<script type="text/brightscript" uri="videoPlayer.brs" />
 	<script type="text/brightscript" uri="../utils/registry.brs" />
+	<script type="text/brightscript" uri="../scene/rokuPayHandler.brs" />
 
 	<children>
 		<Label

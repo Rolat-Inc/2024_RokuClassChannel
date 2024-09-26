@@ -13,6 +13,8 @@
 	<script type="text/brightscript" uri="mainScene.brs" />
 	<script type="text/brightscript" uri="voiceControl.brs" />
 	<script type="text/brightscript" uri="deepLinkHelper.brs" />
+	<script type="text/brightscript" uri="instantResumeHelper.brs" />
+
 	<script type="text/brightscript" uri="../functions/utils.brs" />
 
 	<children>

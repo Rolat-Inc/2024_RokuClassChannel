@@ -10,7 +10,14 @@
             "request": "launch",
             "host": "${promptForHost}",
             "password": "pluto",
-            "rootDir": "${workspaceFolder}"
+            "rootDir": "${workspaceFolder}",
+            "files": [
+                "manifest",
+                "source/**/*.*",
+                "components/**/*.*",
+                "images/**/*.*",
+                "fonts/**/*.*"
+            ]
         }
     ]
 }

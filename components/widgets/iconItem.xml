@@ -21,9 +21,11 @@
                 width="31"
                 blendColor="0x999999"/>
 
-            <Label
+            <FontLabel
                 id="title"
-                color="0x999999"/>
+                color="0x999999"
+                uri="pkg:/fonts/Black.ttf"
+                size="20"/>
 
         </LayoutGroup>
     </children>

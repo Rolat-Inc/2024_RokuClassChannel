@@ -3,36 +3,58 @@
 	<script type="text/brightscript" uri="detailPage.brs" />
 
 	<children>
+		<Poster
+			id="background"
+			uri="pkg:/images/background.jpeg"
+			width="1920"
+			height="1080" />
+
 		<LayoutGroup
-			layoutDirection = "vert"
-			itemSpacings = "[5, 30]"
-			horizAlignment = "center"
-        	vertAlignment = "top">
+			layoutDirection="horiz"
+			itemSpacings="[40]"
+			translation="[100, 100]">
 
 			<Poster
-				id = "contentImage"
-				width = "654"
-				height = "516">
+				id="image" />
 				
-				<Poster
-					id = "playIcon"
-					uri = "https://clipart-library.com/images/6Tp5aga7c.png"
-					width = "100"
-					height = "100"
-					blendColor = "0xFFFFFF" />
-			</Poster>
+			<LayoutGroup
+				layoutDirection="vert"
+				itemSpacings="[15, 15, 20]">
+				
+				<Label
+					id="title"
+					font="font:ExtraLargeBoldSystemFont" />
 
-			<Label
-				id = "contentTitle"
-				font = "font:MediumBoldSystemFont"  />
+				<LayoutGroup
+					layoutDirection="horiz"
+					itemSpacings="[15]">
+						<Badge
+							id="network"
+							font="font:TinyBoldSystemFont" />
+						
+						<Badge
+							id="rating"
+							font="font:TinyBoldSystemFont" />
+				</LayoutGroup>
 
-			<Label
-				id = "contentDescription"
-				font = "font:SmallestSystemFont"
-				width = "1500"
-				maxLines = "3"
-				wrap = "true"
-				horizAlign = "center" />
+				<Label
+					id="genres"
+					font="font:TinySystemFont" />
+
+				<Button
+					id="playButton"
+					color="0x5f9ea0"
+					iconUri="pkg:/images/playIcon.png"
+					text="Play"/>
+			
+				<Label
+					id="description"
+					font="font:SmallestSystemFont"
+					width="1000"
+					maxLines="3"
+					wrap="true"
+					horizAlign="center" />
+			</LayoutGroup>
 		</LayoutGroup>
 	</children>
 </component>

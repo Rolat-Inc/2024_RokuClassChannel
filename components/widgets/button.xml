@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="Button" extends="Poster">
+	<interface>
+		<field id="color" type="string" />
+		<field id="font" type="node" alias="textLabel.font" />
+		<field id="iconUri" type="string" alias="icon.uri" />
+		<field id="text" type="string" onChange="onTextChanged" />
+	</interface>
+
+	<script type="text/brightscript" uri="button.brs" />
+
+	<children>
+		<LayoutGroup
+			id="layoutGroup"
+			layoutDirection="horiz"
+			itemSpacings="[5]">
+
+			<Poster
+				id="icon"
+				width="20"
+				height="20" />
+
+			<Label
+				id="textLabel"
+				horizAlign="center" />
+		</LayoutGroup>
+	</children>
+</component>

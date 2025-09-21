@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="Badge" extends="Poster">
+	<interface>
+		<field id="font" type="node" alias="textLabel.font" />
+		<field id="text" type="string" onChange="onTextChanged" />
+	</interface>
+
+	<script type="text/brightscript" uri="badge.brs" />
+
+	<children>
+		<Label
+			id="textLabel"
+			horizAlign="center" />
+	</children>
+</component>

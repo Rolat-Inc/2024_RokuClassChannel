@@ -15,9 +15,9 @@ sub onTextChanged()
         textLength = m.textLabel.boundingRect().width
         textHeight = m.textLabel.boundingRect().height
 
-        m.top.width = textLength + m.icon.width + (padding * 2)
+        m.top.width = textLength + m.icon.width + (padding * 4)
         m.top.height = textHeight + (padding * 2)
-        m.layoutGroup.translation = [padding, padding]
+        m.layoutGroup.translation = [padding * 2, padding * 2]
 
         if m.top.color <> invalid then m.top.blendColor = m.top.color
     else
